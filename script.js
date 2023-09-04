@@ -69,3 +69,47 @@ navigator.geolocation.getCurrentPosition(position => {
             console.error("Error storing data in Firestore: ", error);
         });
 });
+
+
+// Reference to a specific location in the database
+const dbRef = firebase.database().ref('https://movie-recorn-default-rtdb.firebaseio.com/');
+
+// Read data once
+dbRef.once('value')
+    .then(snapshot => {
+        // Handle the data
+        const data = snapshot.val();
+        console.log(data);
+    })
+    .catch(error => {
+        console.error('Error reading data:', error);
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Reference to a Firestore collection
+const db = firebase.firestore();
+const collectionRef = db.collection('your-collection-name');
+
+// Retrieve data from the collection
+collectionRef.get()
+    .then(querySnapshot => {
+        querySnapshot.forEach(doc => {
+            // Handle each document's data
+            console.log(doc.id, ' => ', doc.data());
+        });
+    })
+    .catch(error => {
+        console.error('Error reading data:', error);
+    });
+
