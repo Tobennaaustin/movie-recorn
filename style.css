@@ -1,0 +1,66 @@
+
+body{
+    background-color: #222;
+    background-image: url('https://source.unsplash.com/1600x900/?landscape');
+    font-family: 'ADLaM Display', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    padding: 20px 30px 10em;
+}
+marquee{
+    color: rgb(234, 237, 234);
+    margin-bottom: 20px;
+}
+.recorn{
+    background: #000000d0;
+    color: white;
+    padding: 2em;
+    border-radius: 30px;
+    width: 100%;
+    max-width: 420px;
+    margin: 1em;
+}
+.recorn h1{
+    text-align: center;
+    margin: 0;
+    cursor: pointer;
+    font-size: 30px;
+    color: #fff;
+    margin-bottom: 50px;
+}
+.chairs{
+    display: inline-block;
+}
+chairs, select{
+    width: 100%;
+    padding: 5px;
+    text-transform: capitalize;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background: transparent;
+    color:#ede7e7;
+    font-size: 17px;
+}
+.chairs label{
+    display: block;
+    font-size: 18px;
+    color: #fff;
+    font-weight: 400;
+}
+.james{
+    width:100%;
+    padding: 10px;
+    border-radius: 5px;
+    text-transform: capitalize;
+    font-weight: 400;
+    font-size: 19px;
+    background: transparent;
+    color: #fff;
+}
+.james:hover{
+    color: rgb(11, 11, 11);
+    background: #fff;
+    transition: all 0.3s linear;
+}

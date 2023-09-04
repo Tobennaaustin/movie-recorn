@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Movie Recommendation</title>
+</head>
+
+<body>
+    <div class="recorn">
+        <h1>Movie Recommendation</h1>
+        <marquee behavior="scroll" direction="">Select a movie gener you like!!</marquee>
+
+        <!-- Genre selection dropdown -->
+        <div class="chairs">
+            <label for="genre" class="genre">Select a genre:</label><br><br>
+            <select id="genre">
+                <option value="anime">Anime</option>
+                <option value="animation">Animation</option>
+                <option value="action">Action</option>
+                <option value="romance">Romance</option>
+                <option value="sci-fi">Sci-Fi</option>
+                <option value="thriller">Thriller</option>
+                <option value="horror">Horror</option>
+            </select><br><br>
+
+            <!-- Button to recommend a movie -->
+            <button id="recommendButton" class="james">Recommend Movie</button>
+        </div><br>
+        <!-- Display recommended movie and where to watch -->
+        <div id="recommendation">
+            <h2>Recommended Movie:</h2>
+            <p id="recommendedMovie"></p>
+            <h3>Where to Watch:</h3>
+            <p id="whereToWatch"></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
